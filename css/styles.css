@@ -154,14 +154,25 @@ main {
   font-size: 1.2rem;
   border: 3px solid red;
 }
-
+.main-sidebar {
+  grid-area: main-sidebar;
+}
+.main-sections {
+  grid-area: main-section;
+}
 main .container {
   display: grid;
+  height: 100%;
   grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    main-sidebar main-section main-section main-section
+    main-section main-section;
+  border: 3px solid green;
 }
 .main-sidebar {
   border: 2px solid purple;
+  height: 100%;
 }
 @media (max-width: 960px) {
   .hamburger-menu {
