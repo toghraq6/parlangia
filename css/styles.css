@@ -147,33 +147,39 @@ ul li:hover ul.dropdown {
   transform: rotate(-45deg) translate(5px, -12px);
 }
 
-main {
-  width: 100%;
-  height: 100%;
-  font-family: "Lato", sans-serif;
-  font-size: 1.2rem;
-  border: 3px solid red;
+/* Main area */
+.main-header {
+  grid-area: main-header;
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 1rem 0;
+  height: fit-content;
+  color: var(--primary);
+  font-size: 3.4rem;
 }
 .main-sidebar {
   grid-area: main-sidebar;
+  grid-row: 2 / -1;
+  grid-column: 1 / 2;
+  background-color: var(--secondary);
 }
-.main-sections {
-  grid-area: main-section;
+.main-sidebar ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-main .container {
+.main-grid {
   display: grid;
-  height: 100%;
-  grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
-    main-sidebar main-section main-section main-section
-    main-section main-section;
-  border: 3px solid green;
+    "main-header main-header"
+    "main-sidebar main-sections";
+  gap: 20px;
+  min-height: 100vh;
 }
-.main-sidebar {
-  border: 2px solid purple;
-  height: 100%;
-}
+
 @media (max-width: 960px) {
   .hamburger-menu {
     display: flex;
